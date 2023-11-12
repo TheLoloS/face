@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+
+
+<body>
+    <div class="flex justify-center items-center w-screen h-screen bg-white ">
+
+        <div class="relative bg-white w-fit h-fit">
+            <!-- <img src="w2.png" class="peer/w2  absolute z-20 hover:z-40 top-[157px] left-[187px] transition-all hover:shadow-lx   rounded-[100%] aspect-square      content-center " alt="" > -->
+            <img onclick="handleChoose(0)" src="Warstwa 2.png"
+                class="hover:shadow-2xl hover:translate-x-2 hover:-translate-y-2 hover:shadow-black absolute z-20  top-[98px] left-[288px] transition-all hover:shadow-lx   rounded-[100%] aspect-square      content-center "
+                alt="">
+            <img onclick="handleChoose(1)" src="Warstwa 3.png"
+                class="hover:shadow-2xl hover:-translate-x-2 hover:-translate-y-1 hover:shadow-black absolute z-20  top-[141px] left-[157px] transition-all hover:shadow-lx   rounded-[100%] aspect-square      content-center "
+                alt="">
+            <img onclick="handleChoose(2)" src="Warstwa 4.png"
+                class="hover:shadow-2xl hover:translate-x-2 hover:translate-y-1 hover:shadow-black absolute z-20  top-[208px] left-[348px] transition-all hover:shadow-lx   rounded-[100%] aspect-square      content-center "
+                alt="">
+            <img onclick="handleChoose(3)" src="Warstwa 5.png"
+                class="hover:shadow-2xl hover:-translate-x-2 hover:-translate-y-2 hover:shadow-black absolute z-20  top-[29px] left-[162px] transition-all hover:shadow-lx   rounded-[100%] aspect-square      content-center "
+                alt="">
+            <img onclick="handleChoose(4)" src="Warstwa 6.png"
+                class="hover:shadow-2xl hover:-translate-x-2 hover:translate-y-2 hover:shadow-black absolute z-20  top-[370px] left-[153px] transition-all hover:shadow-lx   rounded-[100%] aspect-square      content-center "
+                alt="">
+            <img src="Tło.png" alt="" class="z-0  transition-all ">
+            <!-- <div class="bg-black bg-opacity-20 opacity-0  w-full h-full z-10 absolute top-0 
+            peer-hover/w3:z-30 peer-hover/w3:opacity-100  peer-hover/w2:z-30  peer-hover/w2:opacity-100  transition-all"></div> -->
+        </div>
+    </div>
+    <div id="modal"
+        class="hidden bg-black opacity-0 z-40 transition-all bg-opacity-40 w-screen h-screen absolute top-0 justify-center items-center">
+
+        <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+            <button onclick="handleClose()" class="aboslute top-2 left-2">
+                <svg class="w-2 h-2 text-gray-800 m-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                </svg>
+            </button>
+            <img class="w-full" src="https://sklep.mauiskinclinic.pl/wp-content/uploads/2023/09/dermomedica-lipid-control-cleanser-olejek-myjacy-150-ml7.jpg" alt="Sunset in the mountains">
+            <div class="px-6 py-4">
+                <div id="title" class="font-bold text-xl mb-2">The Coldest Sunset</div>
+                <p id="description" class="text-gray-700 text-base">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et
+                    perferendis eaque, exercitationem praesentium nihil.
+                </p>
+            </div>
+            <div class="px-6 pt-4 pb-2">
+                <span
+                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                <span
+                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                <span
+                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <script>
+        const cosmetits = [
+            {
+                title: "krem do skóry wrażliwej",
+                description: "Krem do skóry wrażliwej, z tendencją do alergii, zaczerwienienia, swędzenia, łuszczenia się"
+            },
+            {
+                title: "krem do skóry tłustej",
+                description: "Krem do skóry tłustej, z tendencją do trądziku, zaskórników, rozszerzonych porów, z przebarwieniami"
+            },
+            {
+                title: "krem do skóry suchej",
+                description: "Krem do skóry suchej, z tendencją do łuszczenia się, zaczerwienienia, swędzenia, z przebarwieniami"
+            },
+            {
+                title: "krem do skóry normalnej",
+                description: "Krem do skóry normalnej, z tendencją do zaczerwienienia, swędzenia, łuszczenia się, z przebarwieniami"
+            },
+
+            {
+                title: "krem do skóry mieszanej",
+                description: "Krem do skóry mieszanej, z tendencją do zaczerwienienia, swędzenia, łuszczenia się, z przebarwieniami"
+            },
+            {
+                title: "krople do oczu",
+                description: "Krople do oczu, z tendencją do zaczerwienienia, swędzenia, łuszczenia się, z przebarwieniami"
+            }
+        ]
+        // show dialog box on click
+        function handleChoose(id) {
+            const title = document.getElementById("title")
+            title.innerHTML = cosmetits[id].title
+            const description = document.getElementById("description")
+            description.innerHTML = cosmetits[id].description
+            const modal = document.getElementById("modal")
+            modal.classList.remove("hidden")
+            modal.classList.add("flex")
+            modal.classList.remove("opacity-0")
+            modal.classList.add("opacity-100")
+
+        }
+        // hide dialog box on click
+        function handleClose() {
+            const modal = document.getElementById("modal")
+            modal.classList.remove("flex")
+            modal.classList.add("hidden")
+            modal.classList.remove("opacity-100")
+            modal.classList.add("opacity-0")
+        }
+    </script>
+</body>
+
+</html>
